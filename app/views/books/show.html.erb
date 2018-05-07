@@ -15,7 +15,7 @@
     <td><%= @book.authors.map(&:name).join(', ') %></td>
     <td><%= @book.format.name %></td>
     <td><%= @book.release_date %></td>
-    <td><%= @book.base_price %></td>
+    <td><%= number_to_currency @book.base_price %></td>
   </tr>
 </table>
 
