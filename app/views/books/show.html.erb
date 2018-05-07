@@ -1,4 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<h1>Product details for <%= @book.title %></h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author(s)</th>
+    <th>Format</th>
+    <th>Release Date</th>
+    <th>Base Price</th>
+  </tr>
+  <tr>
+    <td><%= @book.title %></td>
+    <td><%= @book.authors.map(&:name).join(', ') %></td>
+    <td><%= @book.format.name %></td>
+    <td><%= @book.release_date %></td>
+    <td><%= @book.base_price %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit this book', edit_book_path(@book) %> |
+<%= link_to 'Return to book list', books_path %>
