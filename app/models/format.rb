@@ -1,5 +1,6 @@
 class Format < ApplicationRecord
   has_one :book
+  validates_uniqueness_of :name
   validate :correct_name
 
   protected
