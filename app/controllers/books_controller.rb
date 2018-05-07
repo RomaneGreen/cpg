@@ -26,7 +26,12 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-
+    if params.has_key? 'author_id'
+      params[:author_id].each do |i|
+        author = Author.find(i)
+        @book.authors << author
+      end  
+    end
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
@@ -70,6 +75,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.fetch(:book, {})
+      params.permit(:title, :release_date, :format_id)
     end
 end

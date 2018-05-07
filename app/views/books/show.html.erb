@@ -6,12 +6,14 @@
   <tr>
     <th>Title</th>
     <th>Author(s)</th>
+    <th>Format</th>
     <th>Release Date</th>
     <th>Base Price</th>
   </tr>
   <tr>
     <td><%= @book.title %></td>
     <td><%= @book.authors.map(&:name).join(', ') %></td>
+    <td><%= @book.format.name %></td>
     <td><%= @book.release_date %></td>
     <td><%= @book.base_price %></td>
   </tr>
