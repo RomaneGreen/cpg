@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
+gem 'seed_dump'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
