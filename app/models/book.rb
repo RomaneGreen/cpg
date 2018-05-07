@@ -13,9 +13,11 @@ class Book < ApplicationRecord
   protected
 
   def base_price_based_on_release_date
-    two_months_from_now = DateTime.now + 2.month
-    if base_price.nil? && release_date <= two_months_from_now && release_date > DateTime.now
-      errors.add(:base_price, 'required if release date is within 2 months')
-    end    
+    unless release_date.nil?
+      two_months_from_now = DateTime.now + 2.month
+      if base_price.nil? && release_date <= two_months_from_now && release_date > DateTime.now
+        errors.add(:base_price, 'required if release date is within 2 months')
+      end
+    end
   end
 end
