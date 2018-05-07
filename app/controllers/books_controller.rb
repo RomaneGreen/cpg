@@ -16,10 +16,12 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @book.format = Format.new
   end
 
   # GET /books/1/edit
   def edit
+    @book = Book.find(params[:id])
   end
 
   # POST /books
@@ -46,6 +48,15 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
+    if params.has_key? 'author_id'
+      @book.authors = []
+      params[:author_id].each do |i|
+        author = Author.find(i)
+        unless @book.authors.include? author
+          @book.authors << author
+        end        
+      end  
+    end
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
@@ -75,6 +86,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.permit(:title, :release_date, :format_id)
+      params.permit(:title, :release_date, :format_id, :base_price)
     end
 end
