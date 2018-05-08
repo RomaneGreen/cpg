@@ -24,5 +24,6 @@ feature 'Updating a book' do
     fill_in 'title', with: 'Updated title'
     click_button 'Update Book'
     expect(page).to have_content('Book was successfully updated')
+    expect(page).to have_content('Updated title')
   end
 end
