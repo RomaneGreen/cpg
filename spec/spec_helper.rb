@@ -14,6 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
+require 'rake'
 
 SimpleCov.start 'rails' do
   add_filter '/bin/'
@@ -24,10 +25,11 @@ end
 
 RSpec.configure do |config|
   config.before(:suite) do
-    Book.destroy_all
-    Author.destroy_all
-    Format.destroy_all
-    Rails.application.load_seed
+    Rails.application.load_tasks
+    Rake::Task['db:drop'].invoke
+    Rake::Task['db:create'].invoke
+    Rake::Task['db:schema:load'].invoke
+    Rake::Task['db:seed'].invoke
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
