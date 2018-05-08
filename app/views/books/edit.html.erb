@@ -26,8 +26,8 @@
   </div>
 
   <div>
-    <%= label_tag :release_date %>
-    <%= text_field_tag :release_date, @book.release_date %>
+    <%= label_tag :release_date, 'Release date (YYYY-MM-DD)' %>
+    <%= text_field_tag :release_date, @book.release_date.strftime("%Y-%m-%d") %>
   </div>
 
   <div>
