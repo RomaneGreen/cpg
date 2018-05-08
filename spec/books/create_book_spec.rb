@@ -13,3 +13,16 @@ feature 'Creating a new book' do
     expect(page).to have_content('Book was successfully created')
   end
 end
+
+feature 'Updating a book' do
+  scenario 'can update an existing book' do
+    book = Book.new(title: 'Initial title', release_date: DateTime.now)
+    book.authors << Author.first
+    book.format = Format.first
+    book.save!
+    visit edit_book_path(book)
+    fill_in 'title', with: 'Updated title'
+    click_button 'Update Book'
+    expect(page).to have_content('Book was successfully updated')
+  end
+end
