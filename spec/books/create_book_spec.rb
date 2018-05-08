@@ -27,3 +27,10 @@ feature 'Updating a book' do
     expect(page).to have_content('Updated title')
   end
 end
+
+feature 'Viewing the report' do
+  scenario 'can view the report' do
+    visit '/report'
+    expect(page).to have_content('Hardcover books published in 2018')
+  end
+end
