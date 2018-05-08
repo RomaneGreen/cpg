@@ -3,13 +3,16 @@
 <h1>Product details for <%= @book.title %></h1>
 
 <table>
+<thead>
   <tr>
-    <th>Title</th>
-    <th>Author(s)</th>
-    <th>Format</th>
-    <th>Release Date</th>
-    <th>Base Price</th>
+    <th width="30%">Title</th>
+    <th width="30%">Author(s)</th>
+    <th width="15%">Format</th>
+    <th width="15%">Release Date</th>
+    <th width="10%">Base Price</th>
   </tr>
+</thead>
+<tbody>
   <tr>
     <td><%= @book.title %></td>
     <td><%= @book.authors.map(&:name).join(', ') %></td>
@@ -17,6 +20,7 @@
     <td><%= @book.release_date %></td>
     <td><%= number_to_currency @book.base_price %></td>
   </tr>
+</tbody>
 </table>
 
 <%= link_to 'Edit this book', edit_book_path(@book) %> |
