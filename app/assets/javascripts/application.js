@@ -20,3 +20,17 @@ $(function(){
   jQuery.fn.load = function(callback){ $(window).on("load", callback) };
   $(document).foundation(); 
 });
+
+Date.prototype.formatted = function() {
+  var m = this.getMonth() + 1;
+  var d = this.getDate();
+  return [this.getFullYear(), (m > 9 ? '' : '0') + m, (d > 9 ? '' : '0') + d].join('-');
+};
+
+function getFormData(array) {
+  var data = {};
+  $.each(array, function (k, v) {
+    data[v.name] = v.value;
+  });
+  return data;
+}
