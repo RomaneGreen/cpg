@@ -1,24 +1,37 @@
-# README
+# CPG
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Rails app to manage books and authors.
 
-Things you may want to cover:
+Installation:
 
-* Ruby version
+```
+bundle
+rake db:migrate
+rake db:seed
+rails s
+```
 
-* System dependencies
+Tests/coverage:
 
-* Configuration
+```
+rspec -fd
+```
 
-* Database creation
+Getting started:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Click "Create a new book"
+* Enter "Clean Code" in Title field
+* Click on "Robert C. Martin" in Author list
+* Enter "2008-08-11" in Release Date field
+* (Optional) Enter any numeric value in Base Price field
+* Select "Hardcover" from Format list
+* Click "Create Book"
+* Click "Return to book list"
+* Click "Create a new book"
+* Enter "Design Patterns" in Title field
+* Control/command-click on all authors except "Robert C. Martin" in Author list
+* Enter "1994-10-21" in Release Date field
+* (Optional) Enter any numeric value in Base Price field
+* Select "Hardcover" from Format list
+* Click "Create Book"
+* Click "Return to book list"
