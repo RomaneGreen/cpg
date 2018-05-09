@@ -1,5 +1,5 @@
 <h1>Editing <%= @book.title %></h1>
-
+<hr />
 <%= form_with(model: @book, local: true) do |form| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Update Book', class: "button alert" %>
+    <%= link_to 'Return to book list', books_path, class: "button success" %>
   </div>
 <% end %>
 
-<%= link_to 'Return to book list', books_path %>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Product details for <%= @book.title %></h1>
-
+<hr />
 <table>
 <thead>
   <tr>
@@ -23,5 +23,5 @@
 </tbody>
 </table>
 
-<%= link_to 'Edit this book', edit_book_path(@book) %> |
-<%= link_to 'Return to book list', books_path %>
+<%= link_to 'Edit this book', edit_book_path(@book), class: "button alert" %>
+<%= link_to 'Return to book list', books_path, class: "button success" %>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
-
+<hr />
 <table>
   <thead>
     <tr>
@@ -18,7 +18,5 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Create a new book', new_book_path %> |
-<%= link_to 'View report', report_index_path %> 
+<%= link_to 'Create a new book', new_book_path, class: "button alert" %>
+<%= link_to 'View report', report_index_path, class: "button success"  %> 
