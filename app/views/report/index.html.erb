@@ -1,5 +1,6 @@
 <h1>Hardcover books published in 2018</h1>
 <hr />
+<% if @books.present? %>
 <table>
 <thead>
   <tr>
@@ -16,5 +17,6 @@
   <% end %>
 </tbody>  
 </table>
+<% end %>
 
 <%= link_to 'Return to book list', books_path, class: "button success" %>
